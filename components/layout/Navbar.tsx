@@ -115,14 +115,13 @@ export default function Navbar() {
     return () => window.removeEventListener("keydown", onKey);
   }, []);
 
-  const navBg =
-    !isHome || scrolled
-      ? "bg-[#111111]/90 backdrop-blur-md py-4"
-      : "bg-transparent py-6";
+  const navBg = scrolled
+    ? "bg-[#150c2e]/85 backdrop-blur-2xl border-b border-white/10 py-4 shadow-xl shadow-black/30"
+    : "bg-[#150c2e]/60 backdrop-blur-2xl border-b border-white/[0.07] py-5";
 
   return (
     <>
-      <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${navBg}`}>
+      <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${navBg}`}>
         <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
           {/* Logo */}
           <Link href="/" className="flex items-center gap-3 group">
