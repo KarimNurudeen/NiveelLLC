@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowDown, Link as LinkIcon, Heart, Share2 } from "lucide-react";
+import { ArrowDown, Link as LinkIcon, Heart, Share2, Ticket, Zap, TrendingUp } from "lucide-react";
 import ScrollReveal from "@/components/animations/ScrollReveal";
 import TextReveal from "@/components/animations/TextReveal";
 import MagneticButton from "@/components/animations/MagneticButton";
@@ -38,47 +38,113 @@ export default function HomePage() {
 
           {/* Hero summary content */}
           <div className="flex-1 flex flex-col justify-center px-6 sm:px-10 lg:px-20 pb-32 lg:pb-40">
-            <div className="max-w-4xl">
-              {/* Label */}
-              <span className="font-mono text-xs tracking-widest text-[var(--accent)] mb-6 block">
-                DELAWARE-REGISTERED · GLOBAL REACH
-              </span>
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-8 items-center">
 
-              {/* Headline */}
-              <h1
-                className="font-serif leading-[0.92] text-white mb-8"
-                style={{ fontSize: "clamp(2.8rem, 7vw, 8rem)" }}
-              >
-                We Handle<br />
-                Your Books.<br />
-                <span className="text-[var(--accent)]">We Build</span><br />
-                Your Software.
-              </h1>
-
-              {/* Description */}
-              <p className="text-[#c9b8e8] text-base sm:text-lg leading-relaxed max-w-xl mb-10">
-                Niveel LLC delivers expert bookkeeping, tax preparation, and custom
-                software development to businesses across North America and Europe —
-                saving you time and money at every step.
-              </p>
-
-              {/* Service tags */}
-              <div className="flex flex-wrap gap-3">
-                {[
-                  "Bookkeeping",
-                  "Tax Preparation",
-                  "Software Development",
-                  "Business Consulting",
-                  "Payroll Services",
-                ].map((s) => (
-                  <span
-                    key={s}
-                    className="font-mono text-[10px] sm:text-xs tracking-widest border border-white/20 px-3 sm:px-4 py-1.5 text-white/60 hover:border-[var(--accent)] hover:text-[var(--accent)] transition-colors duration-200 cursor-default"
-                  >
-                    {s}
-                  </span>
-                ))}
+              {/* Left: text content */}
+              <div>
+                <span className="font-mono text-xs tracking-widest text-[var(--accent)] mb-6 block">
+                  DELAWARE-REGISTERED · GLOBAL REACH
+                </span>
+                <h1
+                  className="font-serif leading-[0.92] text-white mb-8"
+                  style={{ fontSize: "clamp(2.4rem, 4.8vw, 6rem)" }}
+                >
+                  We Handle<br />
+                  Your Books.<br />
+                  <span className="text-[var(--accent)]">We Build</span><br />
+                  Your Software.
+                </h1>
+                <p className="text-[#c9b8e8] text-base sm:text-lg leading-relaxed max-w-xl mb-10">
+                  Niveel LLC delivers expert bookkeeping, tax preparation, and custom
+                  software development to businesses across North America and Europe —
+                  saving you time and money at every step.
+                </p>
+                <div className="flex flex-wrap gap-3">
+                  {[
+                    "Bookkeeping",
+                    "Tax Preparation",
+                    "Software Development",
+                    "Business Consulting",
+                    "Payroll Services",
+                  ].map((s) => (
+                    <span
+                      key={s}
+                      className="font-mono text-[10px] sm:text-xs tracking-widest border border-white/20 px-3 sm:px-4 py-1.5 text-white/60 hover:border-[var(--accent)] hover:text-[var(--accent)] transition-colors duration-200 cursor-default"
+                    >
+                      {s}
+                    </span>
+                  ))}
+                </div>
               </div>
+
+              {/* Right: productivity illustration */}
+              <div className="hidden lg:block relative h-[500px]">
+                {/* Ambient glow */}
+                <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+                  <div className="w-80 h-80 rounded-full" style={{ background: "radial-gradient(circle, rgba(245,213,0,0.06) 0%, transparent 70%)" }} />
+                </div>
+
+                {/* Card 1 — Ticketing operations */}
+                <div className="absolute top-[2%] left-0 border border-white/10 rounded-2xl p-5 w-56" style={{ background: "rgba(255,255,255,0.04)", backdropFilter: "blur(12px)" }}>
+                  <div className="flex items-center justify-between mb-4">
+                    <div className="w-9 h-9 rounded-xl flex items-center justify-center" style={{ background: "rgba(245,213,0,0.12)" }}>
+                      <Ticket className="w-4 h-4 text-[var(--accent)]" />
+                    </div>
+                    <span className="flex items-center gap-1.5">
+                      <span className="w-1.5 h-1.5 rounded-full bg-green-400 animate-pulse" />
+                      <span className="font-mono text-[9px] text-white/30">LIVE</span>
+                    </span>
+                  </div>
+                  <div className="font-serif text-4xl text-white leading-none mb-1">1,247</div>
+                  <div className="font-mono text-[9px] tracking-widest text-white/35 mb-4">TICKETS PROCESSED</div>
+                  <div className="space-y-1.5">
+                    <div className="flex justify-between font-mono text-[9px] text-white/25">
+                      <span>Monthly target</span><span>78%</span>
+                    </div>
+                    <div className="h-1 rounded-full overflow-hidden" style={{ background: "rgba(255,255,255,0.08)" }}>
+                      <div className="h-full rounded-full bg-[var(--accent)]" style={{ width: "78%" }} />
+                    </div>
+                  </div>
+                </div>
+
+                {/* Card 2 — AI productivity */}
+                <div className="absolute top-[30%] right-0 border border-white/10 rounded-2xl p-5 w-60" style={{ background: "rgba(255,255,255,0.04)", backdropFilter: "blur(12px)" }}>
+                  <div className="flex items-center gap-3 mb-4">
+                    <div className="w-9 h-9 rounded-xl flex items-center justify-center" style={{ background: "rgba(168,85,247,0.15)" }}>
+                      <Zap className="w-4 h-4 text-purple-300" />
+                    </div>
+                    <span className="font-mono text-[9px] tracking-widest text-white/35">AI PRODUCTIVITY</span>
+                  </div>
+                  <div className="font-serif text-4xl text-white leading-none mb-1">60%</div>
+                  <div className="font-mono text-[9px] tracking-widest text-white/35 mb-4">FASTER TASK COMPLETION</div>
+                  <div className="flex items-end gap-1 h-10">
+                    {[40, 55, 48, 70, 60, 85, 75].map((h, i) => (
+                      <div
+                        key={i}
+                        className="flex-1 rounded-t-sm"
+                        style={{ height: `${h}%`, background: i === 5 ? "var(--accent)" : "rgba(255,255,255,0.1)" }}
+                      />
+                    ))}
+                  </div>
+                </div>
+
+                {/* Card 3 — Commerce & customer reach */}
+                <div className="absolute bottom-[4%] left-[8%] border border-white/10 rounded-2xl p-5 w-52" style={{ background: "rgba(255,255,255,0.04)", backdropFilter: "blur(12px)" }}>
+                  <div className="flex items-center gap-3 mb-4">
+                    <div className="w-9 h-9 rounded-xl flex items-center justify-center" style={{ background: "rgba(59,130,246,0.15)" }}>
+                      <TrendingUp className="w-4 h-4 text-blue-300" />
+                    </div>
+                    <span className="font-mono text-[9px] tracking-widest text-white/35">SOCIAL COMMERCE</span>
+                  </div>
+                  <div className="flex items-end gap-2 mb-1">
+                    <div className="font-serif text-4xl text-white leading-none">2.4×</div>
+                    <span className="font-mono text-xs text-green-400 mb-0.5">↑ growth</span>
+                  </div>
+                  <div className="font-mono text-[9px] tracking-widest text-white/35">CUSTOMER REACH EXPANDED</div>
+                </div>
+
+              </div>
+
             </div>
           </div>
 
