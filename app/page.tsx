@@ -85,10 +85,10 @@ export default function HomePage() {
                 </div>
 
                 {/* Card 1 — Ticketing operations */}
-                <div className="absolute top-[2%] left-0 border border-white/10 rounded-2xl p-5 w-56" style={{ background: "rgba(255,255,255,0.04)", backdropFilter: "blur(12px)" }}>
+                <div className="absolute top-[2%] left-0 border border-white/10 rounded-2xl p-5 w-56 animate-float-1" style={{ background: "rgba(255,255,255,0.04)", backdropFilter: "blur(12px)" }}>
                   <div className="flex items-center justify-between mb-4">
-                    <div className="w-9 h-9 rounded-xl flex items-center justify-center" style={{ background: "rgba(245,213,0,0.12)" }}>
-                      <Ticket className="w-4 h-4 text-[var(--accent)]" />
+                    <div className="w-9 h-9 rounded-xl flex items-center justify-center animate-glow-gold" style={{ background: "rgba(245,213,0,0.12)" }}>
+                      <Ticket className="w-4 h-4 text-[var(--accent)] animate-icon-swing" />
                     </div>
                     <span className="flex items-center gap-1.5">
                       <span className="w-1.5 h-1.5 rounded-full bg-green-400 animate-pulse" />
@@ -108,10 +108,10 @@ export default function HomePage() {
                 </div>
 
                 {/* Card 2 — AI productivity */}
-                <div className="absolute top-[30%] right-0 border border-white/10 rounded-2xl p-5 w-60" style={{ background: "rgba(255,255,255,0.04)", backdropFilter: "blur(12px)" }}>
+                <div className="absolute top-[30%] right-0 border border-white/10 rounded-2xl p-5 w-60 animate-float-2" style={{ background: "rgba(255,255,255,0.04)", backdropFilter: "blur(12px)" }}>
                   <div className="flex items-center gap-3 mb-4">
-                    <div className="w-9 h-9 rounded-xl flex items-center justify-center" style={{ background: "rgba(168,85,247,0.15)" }}>
-                      <Zap className="w-4 h-4 text-purple-300" />
+                    <div className="w-9 h-9 rounded-xl flex items-center justify-center animate-glow-purple" style={{ background: "rgba(168,85,247,0.15)" }}>
+                      <Zap className="w-4 h-4 text-purple-300 animate-icon-flash" />
                     </div>
                     <span className="font-mono text-[9px] tracking-widest text-white/35">AI PRODUCTIVITY</span>
                   </div>
@@ -129,10 +129,10 @@ export default function HomePage() {
                 </div>
 
                 {/* Card 3 — Commerce & customer reach */}
-                <div className="absolute bottom-[4%] left-[8%] border border-white/10 rounded-2xl p-5 w-52" style={{ background: "rgba(255,255,255,0.04)", backdropFilter: "blur(12px)" }}>
+                <div className="absolute bottom-[4%] left-[8%] border border-white/10 rounded-2xl p-5 w-52 animate-float-3" style={{ background: "rgba(255,255,255,0.04)", backdropFilter: "blur(12px)" }}>
                   <div className="flex items-center gap-3 mb-4">
-                    <div className="w-9 h-9 rounded-xl flex items-center justify-center" style={{ background: "rgba(59,130,246,0.15)" }}>
-                      <TrendingUp className="w-4 h-4 text-blue-300" />
+                    <div className="w-9 h-9 rounded-xl flex items-center justify-center animate-glow-blue" style={{ background: "rgba(59,130,246,0.15)" }}>
+                      <TrendingUp className="w-4 h-4 text-blue-300 animate-icon-rise" />
                     </div>
                     <span className="font-mono text-[9px] tracking-widest text-white/35">SOCIAL COMMERCE</span>
                   </div>
