@@ -134,7 +134,7 @@ export default function Navbar() {
               className="rounded-lg"
               priority
             />
-            <span className="font-mono text-xs tracking-widest text-white hidden sm:block">
+            <span className="font-mono text-sm tracking-widest text-white hidden sm:block">
               NIVEEL LLC
             </span>
           </Link>
@@ -147,9 +147,9 @@ export default function Navbar() {
                 <button
                   key={link.name}
                   onClick={() => setDrawerOpen((v) => !v)}
-                  className="flex items-center gap-1.5 font-mono text-xs tracking-widest text-white/80 hover:text-white transition-colors duration-200 relative group"
+                  className="flex items-center gap-1.5 font-mono text-sm tracking-widest text-white/80 hover:text-white transition-colors duration-200 relative group"
                 >
-                  <Icon className="w-3 h-3 shrink-0" />
+                  <Icon className="w-3.5 h-3.5 shrink-0" />
                   {link.name}
                   <span
                     className="absolute -bottom-0.5 left-0 h-px bg-[var(--accent)] transition-all duration-300"
@@ -160,9 +160,9 @@ export default function Navbar() {
                 <Link
                   key={link.name}
                   href={link.path}
-                  className="flex items-center gap-1.5 font-mono text-xs tracking-widest text-white/80 hover:text-white transition-colors duration-200 relative group"
+                  className="flex items-center gap-1.5 font-mono text-sm tracking-widest text-white/80 hover:text-white transition-colors duration-200 relative group"
                 >
-                  <Icon className="w-3 h-3 shrink-0" />
+                  <Icon className="w-3.5 h-3.5 shrink-0" />
                   {link.name}
                   <span className="absolute -bottom-0.5 left-0 h-px w-0 bg-[var(--accent)] group-hover:w-full transition-all duration-300" />
                 </Link>
@@ -181,7 +181,7 @@ export default function Navbar() {
             </a>
             <Link
               href="/contact"
-              className="font-mono text-xs tracking-widest border border-white/50 px-5 py-2 text-white hover:bg-white hover:text-[#111111] transition-all duration-300"
+              className="font-mono text-sm tracking-widest border border-white/50 px-5 py-2 text-white hover:bg-white hover:text-[#111111] transition-all duration-300"
             >
               CONTACT
             </Link>

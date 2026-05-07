@@ -218,20 +218,51 @@ export default function HomePage() {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             {[
-              "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&q=80",
-              "https://images.unsplash.com/photo-1555421689-491a97ff2040?w=800&q=80",
-              "https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?w=800&q=80",
-            ].map((src, i) => (
-              <ScrollReveal key={src} type="scaleIn" delay={i * 0.1}>
-                <div className="relative h-64 rounded-xl overflow-hidden group cursor-pointer">
-                  <Image
-                    src={src}
-                    alt={`Case study ${i + 1}`}
-                    fill
-                    sizes="(max-width: 768px) 100vw, 33vw"
-                    className="object-cover group-hover:scale-110 transition-transform duration-700"
-                  />
-                  <div className="absolute inset-0 bg-black/0 group-hover:bg-black/30 transition-colors duration-300" />
+              {
+                stat: "3×",
+                headline: "Faster event operations",
+                desc: "Automated ticket sales, real-time attendee tracking, and instant payment processing eliminated manual cash handling and reconciliation entirely.",
+                img: "/screenshots/cafa-tickets-home.png",
+                tag: "TICKETING & PAYMENTS",
+                position: "object-top",
+              },
+              {
+                stat: "60%",
+                headline: "Less time on repetitive tasks",
+                desc: "Multi-model AI assistance handles research, drafting, and data summarisation in minutes — freeing teams to focus purely on decisions that move the business forward.",
+                img: "/screenshots/cafa-ai-chat.jpg",
+                tag: "AI-POWERED WORKFLOW",
+                position: "object-top",
+              },
+              {
+                stat: "2×",
+                headline: "Growth in customer engagement",
+                desc: "A social-first commerce platform that connects businesses with customers organically, cutting acquisition costs while expanding reach across new markets.",
+                img: "https://images.unsplash.com/photo-1611532736597-de2d4265fba3?w=800&q=80",
+                tag: "SOCIAL COMMERCE",
+                position: "object-center",
+              },
+            ].map((cs, i) => (
+              <ScrollReveal key={cs.tag} type="scaleIn" delay={i * 0.1}>
+                <div className="rounded-xl overflow-hidden group cursor-pointer bg-white border border-[#111111]/8">
+                  <div className="relative h-44 overflow-hidden">
+                    <Image
+                      src={cs.img}
+                      alt={cs.headline}
+                      fill
+                      sizes="(max-width: 768px) 100vw, 33vw"
+                      className={`object-cover ${cs.position} group-hover:scale-110 transition-transform duration-700`}
+                    />
+                    <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-300" />
+                    <span className="absolute top-3 left-3 font-mono text-[9px] tracking-widest bg-[#111111] text-white px-2.5 py-1">
+                      {cs.tag}
+                    </span>
+                  </div>
+                  <div className="p-5">
+                    <div className="font-serif text-5xl leading-none text-[#111111] mb-1">{cs.stat}</div>
+                    <div className="font-semibold text-[#111111] text-sm mb-2">{cs.headline}</div>
+                    <p className="text-[#666] text-xs leading-relaxed">{cs.desc}</p>
+                  </div>
                 </div>
               </ScrollReveal>
             ))}
