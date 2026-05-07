@@ -209,13 +209,15 @@ export default function HomePage() {
           </div>
 
           {/* LEARN MORE bolt-nut */}
-          <MagneticButton className="absolute z-30 left-1/2 -translate-x-1/2 bottom-[58px] hidden lg:block">
-            <div className="w-52 h-52 rounded-full bg-[#0E0E0E] border border-white/10 flex items-center justify-center">
-              <Link href="/about" className="w-36 h-36 rounded-full bg-white text-[#111111] flex items-center justify-center font-mono text-xs tracking-widest hover:bg-[var(--accent)] transition-colors duration-300 font-semibold shadow-xl">
-                LEARN MORE
-              </Link>
-            </div>
-          </MagneticButton>
+          <div className="hidden lg:block absolute z-30 left-1/2 -translate-x-1/2 bottom-[58px]">
+            <MagneticButton>
+              <div className="w-52 h-52 rounded-full bg-[#0E0E0E] border border-white/10 flex items-center justify-center">
+                <Link href="/about" className="w-36 h-36 rounded-full bg-white text-[#111111] flex items-center justify-center font-mono text-xs tracking-widest hover:bg-[var(--accent)] transition-colors duration-300 font-semibold shadow-xl">
+                  LEARN MORE
+                </Link>
+              </div>
+            </MagneticButton>
+          </div>
 
           {/* Bottom bar */}
           <div className="absolute bottom-0 left-0 right-0 z-20 px-6 sm:px-8 lg:px-16 pb-6 lg:pb-8 hidden lg:block">
