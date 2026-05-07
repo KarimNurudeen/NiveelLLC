@@ -4,7 +4,6 @@ import { ArrowDown, Link as LinkIcon, Heart, Share2 } from "lucide-react";
 import ScrollReveal from "@/components/animations/ScrollReveal";
 import TextReveal from "@/components/animations/TextReveal";
 import MagneticButton from "@/components/animations/MagneticButton";
-import HeroSceneClient from "@/components/three/HeroSceneClient";
 import ProductsMarquee from "@/components/home/ProductsMarquee";
 import StrategyHorizontal from "@/components/home/StrategyHorizontal";
 import TestimonialsSection from "@/components/home/TestimonialsSection";
@@ -25,117 +24,60 @@ export default function HomePage() {
   return (
     <>
       {/* ─── Hero ─── */}
-      <section className="bg-[#111111]">
-        <div className="relative min-h-screen overflow-hidden flex flex-col">
-          {/* Particles */}
-          <HeroSceneClient />
+      <section className="bg-[#150c2e]">
+        <div className="relative min-h-screen flex flex-col">
 
           {/* Right-side social icons */}
           <div className="hidden lg:flex flex-col gap-3 absolute right-6 top-1/2 -translate-y-1/2 z-20">
             {[LinkIcon, Heart, Share2].map((Icon, i) => (
               <div key={i} className="w-9 h-9 border border-white/20 rounded-full flex items-center justify-center hover:border-[var(--accent)] hover:text-[var(--accent)] transition-all duration-300 cursor-pointer">
-                <Icon className="w-3.5 h-3.5" />
+                <Icon className="w-3.5 h-3.5 text-white" />
               </div>
             ))}
           </div>
 
-          {/* Service cards — hero viewport */}
-          <div className="absolute z-10 inset-x-0 px-4 sm:px-6 lg:px-10 top-[10%] sm:top-[12%] lg:top-[13%]">
-            <div className="max-w-7xl mx-auto">
-              <div className="grid grid-cols-1 lg:grid-cols-[58%_1fr] gap-3 lg:gap-4 lg:h-[420px]">
+          {/* Hero summary content */}
+          <div className="flex-1 flex flex-col justify-center px-6 sm:px-10 lg:px-20 pb-32 lg:pb-40">
+            <div className="max-w-4xl">
+              {/* Label */}
+              <span className="font-mono text-xs tracking-widest text-[var(--accent)] mb-6 block">
+                DELAWARE-REGISTERED · GLOBAL REACH
+              </span>
 
-                {/* Large left card: Bookkeeping & Taxation */}
-                <div className="flex overflow-hidden bg-[#E3E3E3] h-[240px] sm:h-[290px] lg:h-full">
-                  <div className="w-[38%] relative shrink-0" style={{ clipPath: "polygon(0 0, 100% 0, 86% 100%, 0 100%)" }}>
-                    <Image
-                      src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=800&q=80"
-                      alt="Bookkeeping"
-                      fill
-                      sizes="(max-width:1024px) 40vw, 22vw"
-                      className="object-cover object-center"
-                      loading="lazy"
-                    />
-                  </div>
-                  <div className="flex-1 px-4 py-4 sm:px-6 sm:py-5 lg:px-8 lg:py-7 flex flex-col justify-between bg-[#E3E3E3]">
-                    <div>
-                      <p className="font-sans text-[10px] font-semibold text-[#555] uppercase tracking-wide mb-2">
-                        Our Core Service:
-                      </p>
-                      <h3 className="font-serif text-lg sm:text-2xl lg:text-3xl text-[#111111] leading-tight mb-2">
-                        Bookkeeping &amp; Taxation
-                      </h3>
-                      <ul className="hidden sm:block space-y-1 text-xs text-[#333]">
-                        <li>• Daily, monthly &amp; annual bookkeeping</li>
-                        <li>• Corporate tax return preparation</li>
-                      </ul>
-                    </div>
-                    <Link
-                      href="/services"
-                      className="self-start border border-[#333] text-[#111111] font-sans text-xs px-3 py-1.5 sm:text-sm sm:px-5 sm:py-2.5 hover:bg-[#111111] hover:text-white transition-colors duration-200"
-                    >
-                      Explore Services
-                    </Link>
-                  </div>
-                </div>
+              {/* Headline */}
+              <h1
+                className="font-serif leading-[0.92] text-white mb-8"
+                style={{ fontSize: "clamp(2.8rem, 7vw, 8rem)" }}
+              >
+                We Handle<br />
+                Your Books.<br />
+                <span className="text-[var(--accent)]">We Build</span><br />
+                Your Software.
+              </h1>
 
-                {/* Right column: two stacked cards */}
-                <div className="grid grid-cols-2 lg:grid-cols-1 lg:grid-rows-2 gap-3 h-[130px] sm:h-[160px] lg:h-full">
+              {/* Description */}
+              <p className="text-[#c9b8e8] text-base sm:text-lg leading-relaxed max-w-xl mb-10">
+                Niveel LLC delivers expert bookkeeping, tax preparation, and custom
+                software development to businesses across North America and Europe —
+                saving you time and money at every step.
+              </p>
 
-                  {/* Software Development */}
-                  <div className="flex overflow-hidden bg-[#E3E3E3]">
-                    <div className="w-[40%] relative shrink-0 flex flex-col gap-0.5" style={{ clipPath: "polygon(0 0, 100% 0, 86% 100%, 0 100%)" }}>
-                      <div className="relative flex-1 overflow-hidden">
-                        <Image
-                          src="https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=400&q=80"
-                          alt="Software"
-                          fill
-                          sizes="(max-width:1024px) 20vw, 15vw"
-                          className="object-cover"
-                          loading="lazy"
-                        />
-                      </div>
-                      <div className="relative flex-1 overflow-hidden">
-                        <Image
-                          src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=400&q=80"
-                          alt="Code"
-                          fill
-                          sizes="(max-width:1024px) 20vw, 15vw"
-                          className="object-cover"
-                          loading="lazy"
-                        />
-                      </div>
-                    </div>
-                    <div className="flex-1 px-3 py-3 sm:px-4 flex flex-col justify-center bg-[#E3E3E3]">
-                      <h4 className="font-serif text-xs sm:text-sm lg:text-base text-[#111111] leading-snug">
-                        Software for Business Growth
-                      </h4>
-                    </div>
-                  </div>
-
-                  {/* Consultation & Convenience */}
-                  <div className="flex overflow-hidden bg-[#E3E3E3]">
-                    <div className="w-[40%] relative shrink-0 bg-[#1A1A2E] overflow-hidden" style={{ clipPath: "polygon(0 0, 100% 0, 86% 100%, 0 100%)" }}>
-                      <Image
-                        src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=400&q=80"
-                        alt="Consultation"
-                        fill
-                        sizes="(max-width:1024px) 20vw, 15vw"
-                        className="object-cover opacity-60"
-                        loading="lazy"
-                      />
-                      <div className="absolute inset-0 bg-[var(--accent)]/20" />
-                    </div>
-                    <div className="flex-1 px-3 py-3 sm:px-4 flex flex-col justify-center bg-[#E3E3E3]">
-                      <span className="inline-block bg-[var(--accent)] text-[#111111] font-mono text-[8px] tracking-widest px-1.5 py-0.5 mb-1 w-fit">
-                        ALWAYS AVAILABLE
-                      </span>
-                      <h4 className="font-serif text-xs sm:text-sm lg:text-base text-[#111111] leading-snug">
-                        Consultation &amp; Convenience
-                      </h4>
-                    </div>
-                  </div>
-
-                </div>
+              {/* Service tags */}
+              <div className="flex flex-wrap gap-3">
+                {[
+                  "Bookkeeping",
+                  "Tax Preparation",
+                  "Software Development",
+                  "Business Consulting",
+                  "Payroll Services",
+                ].map((s) => (
+                  <span
+                    key={s}
+                    className="font-mono text-[10px] sm:text-xs tracking-widest border border-white/20 px-3 sm:px-4 py-1.5 text-white/60 hover:border-[var(--accent)] hover:text-[var(--accent)] transition-colors duration-200 cursor-default"
+                  >
+                    {s}
+                  </span>
+                ))}
               </div>
             </div>
           </div>
@@ -171,6 +113,7 @@ export default function HomePage() {
               </div>
             </div>
           </div>
+
         </div>
       </section>
 
