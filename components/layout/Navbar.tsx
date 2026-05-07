@@ -116,8 +116,8 @@ export default function Navbar() {
   }, []);
 
   const navBg = scrolled
-    ? "bg-[#150c2e]/85 backdrop-blur-2xl border-b border-white/10 py-4 shadow-xl shadow-black/30"
-    : "bg-[#150c2e]/60 backdrop-blur-2xl border-b border-white/[0.07] py-5";
+    ? "bg-[#111111]/90 backdrop-blur-2xl border-b border-white/10 py-4 shadow-xl shadow-black/40"
+    : "bg-[#111111]/70 backdrop-blur-2xl border-b border-white/[0.07] py-5";
 
   return (
     <>
