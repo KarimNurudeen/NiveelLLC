@@ -4,35 +4,12 @@ import { ArrowDown, Link as LinkIcon, Heart, Share2 } from "lucide-react";
 import ScrollReveal from "@/components/animations/ScrollReveal";
 import TextReveal from "@/components/animations/TextReveal";
 import MagneticButton from "@/components/animations/MagneticButton";
-import ParallaxImage from "@/components/animations/ParallaxImage";
 import HeroSceneClient from "@/components/three/HeroSceneClient";
-import HeroBackground from "@/components/layout/HeroBackground";
-import HeroCyclingWord from "@/components/animations/HeroCyclingWord";
 import ProductsMarquee from "@/components/home/ProductsMarquee";
+import StrategyHorizontal from "@/components/home/StrategyHorizontal";
+import TestimonialsSection from "@/components/home/TestimonialsSection";
 
-const TESTIMONIALS = [
-  {
-    category: "WEB DEVELOPMENT",
-    quote:
-      "Niveel transformed our digital presence completely. The team's attention to detail and technical excellence exceeded every expectation.",
-    author: "Sarah Johnson",
-    role: "CEO, TechVentures",
-  },
-  {
-    category: "MOBILE APPS",
-    quote:
-      "The mobile application they built for us has been a game changer. Smooth, intuitive, and delivered on time.",
-    author: "Marcus Chen",
-    role: "Product Lead, AppDynamics",
-  },
-  {
-    category: "AI SOLUTIONS",
-    quote:
-      "Their AI integration cut our operational costs by 40%. The team truly understands both business and technology.",
-    author: "Priya Sharma",
-    role: "CTO, DataFlow Inc",
-  },
-];
+
 
 const PRODUCT_IMAGES = [
   { src: "/screenshots/cafa-tickets-home.png",     label: "Cafa Tickets", position: "object-top" },
@@ -48,105 +25,155 @@ export default function HomePage() {
   return (
     <>
       {/* ─── Hero ─── */}
-      <section className="relative h-screen min-h-[600px] sm:min-h-[700px] lg:min-h-[800px] overflow-hidden">
-        {/* Cycling background images */}
-        <HeroBackground />
+      <section className="bg-[#111111]">
+        <div className="relative min-h-screen overflow-hidden flex flex-col">
+          {/* Particles */}
+          <HeroSceneClient />
 
-        {/* Three.js particle overlay */}
-        <HeroSceneClient />
-
-        {/* Right-side floating social icons */}
-        <div className="hidden lg:flex flex-col gap-3 absolute right-6 top-1/2 -translate-y-1/2 z-20">
-          {[LinkIcon, Heart, Share2].map((Icon, i) => (
-            <div
-              key={i}
-              className="w-9 h-9 border border-white/30 rounded-full flex items-center justify-center hover:border-[var(--accent)] hover:text-[var(--accent)] transition-all duration-300 cursor-pointer"
-            >
-              <Icon className="w-3.5 h-3.5" />
-            </div>
-          ))}
-        </div>
-
-        {/* Main heading — left-aligned, positioned at ~30% from top */}
-        <div className="absolute left-6 lg:left-10 z-10" style={{ top: "30%" }}>
-          <TextReveal
-            text="INDIVIDUAL BUILDING"
-            tag="h1"
-            className="font-serif leading-[0.9] tracking-tight text-white block"
-            style={{ fontSize: "clamp(2.2rem, 6.8vw, 8.5rem)" } as React.CSSProperties}
-            splitBy="words"
-            delay={0}
-          />
-          <TextReveal
-            text="FOR YOUR"
-            tag="h1"
-            className="font-serif leading-[0.9] tracking-tight text-white block"
-            style={{ fontSize: "clamp(2.2rem, 6.8vw, 8.5rem)" } as React.CSSProperties}
-            splitBy="words"
-            delay={0.15}
-          />
-          <HeroCyclingWord
-            className="font-serif leading-[0.9] tracking-tight text-white"
-            style={{ fontSize: "clamp(2.2rem, 6.8vw, 8.5rem)" } as React.CSSProperties}
-          />
-        </div>
-
-        {/* Quote — bottom-left, above the glass bar */}
-        <ScrollReveal
-          type="fadeUp"
-          delay={0.6}
-          className="absolute z-10 left-6 lg:left-10 bottom-[190px] max-w-[240px] hidden lg:block"
-        >
-          <p className="text-white/65 text-sm leading-relaxed">
-            We are a Delaware-registered LLC with a global reach, dedicated to saving
-            you time and money through bookkeeping, taxation, and software solutions.
-          </p>
-        </ScrollReveal>
-
-        {/* LEARN MORE — outer dark ring (the "nut") + inner white button (the "bolt") */}
-        <MagneticButton className="absolute z-30 left-1/2 -translate-x-1/2 bottom-[58px] hidden lg:block">
-          <div className="w-52 h-52 rounded-full bg-[#0E0E0E] border border-white/10 flex items-center justify-center">
-            <Link
-              href="/about"
-              className="w-36 h-36 rounded-full bg-white text-[#111111] flex items-center justify-center font-mono text-xs tracking-widest hover:bg-[var(--accent)] transition-colors duration-300 font-semibold shadow-xl"
-            >
-              LEARN MORE
-            </Link>
+          {/* Right-side social icons */}
+          <div className="hidden lg:flex flex-col gap-3 absolute right-6 top-1/2 -translate-y-1/2 z-20">
+            {[LinkIcon, Heart, Share2].map((Icon, i) => (
+              <div key={i} className="w-9 h-9 border border-white/20 rounded-full flex items-center justify-center hover:border-[var(--accent)] hover:text-[var(--accent)] transition-all duration-300 cursor-pointer">
+                <Icon className="w-3.5 h-3.5" />
+              </div>
+            ))}
           </div>
-        </MagneticButton>
 
-        {/* Bottom bar */}
-        <div className="absolute bottom-0 left-0 right-0 z-20 px-8 lg:px-16 pb-8">
-          <div className="bg-[#0E0E0E] rounded-3xl px-8 lg:px-12 pt-6 pb-7">
-            <div className="max-w-7xl mx-auto flex items-center justify-between gap-6">
-              {/* Card 1 */}
-              <ScrollReveal type="fadeUp" delay={0.5} className="flex items-center gap-4 flex-1">
-                <div
-                  className="shrink-0 w-28 h-20 rounded-2xl bg-center bg-cover"
-                  style={{ backgroundImage: "url(https://images.unsplash.com/photo-1497366216548-37526070297c?w=400&q=80)" }}
-                />
-                <p className="text-white/80 text-sm leading-snug max-w-[220px]">
-                  We apply modern financial technologies of bookkeeping, taxation, and process management.
-                </p>
-              </ScrollReveal>
+          {/* Service cards — hero viewport */}
+          <div className="absolute z-10 inset-x-0 px-4 sm:px-6 lg:px-10 top-[10%] sm:top-[12%] lg:top-[13%]">
+            <div className="max-w-7xl mx-auto">
+              <div className="grid grid-cols-1 lg:grid-cols-[58%_1fr] gap-3 lg:gap-4 lg:h-[420px]">
 
-              {/* Oval socket — same width as the outer ring so content doesn't crowd it */}
-              <div className="hidden lg:block w-56 shrink-0" />
+                {/* Large left card: Bookkeeping & Taxation */}
+                <div className="flex overflow-hidden bg-[#E3E3E3] h-[240px] sm:h-[290px] lg:h-full">
+                  <div className="w-[38%] relative shrink-0" style={{ clipPath: "polygon(0 0, 100% 0, 86% 100%, 0 100%)" }}>
+                    <Image
+                      src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=800&q=80"
+                      alt="Bookkeeping"
+                      fill
+                      sizes="(max-width:1024px) 40vw, 22vw"
+                      className="object-cover object-center"
+                      loading="lazy"
+                    />
+                  </div>
+                  <div className="flex-1 px-4 py-4 sm:px-6 sm:py-5 lg:px-8 lg:py-7 flex flex-col justify-between bg-[#E3E3E3]">
+                    <div>
+                      <p className="font-sans text-[10px] font-semibold text-[#555] uppercase tracking-wide mb-2">
+                        Our Core Service:
+                      </p>
+                      <h3 className="font-serif text-lg sm:text-2xl lg:text-3xl text-[#111111] leading-tight mb-2">
+                        Bookkeeping &amp; Taxation
+                      </h3>
+                      <ul className="hidden sm:block space-y-1 text-xs text-[#333]">
+                        <li>• Daily, monthly &amp; annual bookkeeping</li>
+                        <li>• Corporate tax return preparation</li>
+                      </ul>
+                    </div>
+                    <Link
+                      href="/services"
+                      className="self-start border border-[#333] text-[#111111] font-sans text-xs px-3 py-1.5 sm:text-sm sm:px-5 sm:py-2.5 hover:bg-[#111111] hover:text-white transition-colors duration-200"
+                    >
+                      Explore Services
+                    </Link>
+                  </div>
+                </div>
 
-              {/* Card 2 */}
-              <ScrollReveal type="fadeUp" delay={0.65} className="hidden sm:flex items-center gap-4 flex-1 justify-end">
-                <p className="text-white/80 text-sm leading-snug text-right max-w-[220px]">
-                  We understand the needs and goals of our partners and fully assist in achieving these goals.
-                </p>
-                <div
-                  className="shrink-0 w-28 h-20 rounded-2xl bg-center bg-cover"
-                  style={{ backgroundImage: "url(https://images.unsplash.com/photo-1486325212027-8081e485255e?w=400&q=80)" }}
-                />
-              </ScrollReveal>
+                {/* Right column: two stacked cards */}
+                <div className="grid grid-cols-2 lg:grid-cols-1 lg:grid-rows-2 gap-3 h-[130px] sm:h-[160px] lg:h-full">
+
+                  {/* Software Development */}
+                  <div className="flex overflow-hidden bg-[#E3E3E3]">
+                    <div className="w-[40%] relative shrink-0 flex flex-col gap-0.5" style={{ clipPath: "polygon(0 0, 100% 0, 86% 100%, 0 100%)" }}>
+                      <div className="relative flex-1 overflow-hidden">
+                        <Image
+                          src="https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=400&q=80"
+                          alt="Software"
+                          fill
+                          sizes="(max-width:1024px) 20vw, 15vw"
+                          className="object-cover"
+                          loading="lazy"
+                        />
+                      </div>
+                      <div className="relative flex-1 overflow-hidden">
+                        <Image
+                          src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=400&q=80"
+                          alt="Code"
+                          fill
+                          sizes="(max-width:1024px) 20vw, 15vw"
+                          className="object-cover"
+                          loading="lazy"
+                        />
+                      </div>
+                    </div>
+                    <div className="flex-1 px-3 py-3 sm:px-4 flex flex-col justify-center bg-[#E3E3E3]">
+                      <h4 className="font-serif text-xs sm:text-sm lg:text-base text-[#111111] leading-snug">
+                        Software for Business Growth
+                      </h4>
+                    </div>
+                  </div>
+
+                  {/* Consultation & Convenience */}
+                  <div className="flex overflow-hidden bg-[#E3E3E3]">
+                    <div className="w-[40%] relative shrink-0 bg-[#1A1A2E] overflow-hidden" style={{ clipPath: "polygon(0 0, 100% 0, 86% 100%, 0 100%)" }}>
+                      <Image
+                        src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=400&q=80"
+                        alt="Consultation"
+                        fill
+                        sizes="(max-width:1024px) 20vw, 15vw"
+                        className="object-cover opacity-60"
+                        loading="lazy"
+                      />
+                      <div className="absolute inset-0 bg-[var(--accent)]/20" />
+                    </div>
+                    <div className="flex-1 px-3 py-3 sm:px-4 flex flex-col justify-center bg-[#E3E3E3]">
+                      <span className="inline-block bg-[var(--accent)] text-[#111111] font-mono text-[8px] tracking-widest px-1.5 py-0.5 mb-1 w-fit">
+                        ALWAYS AVAILABLE
+                      </span>
+                      <h4 className="font-serif text-xs sm:text-sm lg:text-base text-[#111111] leading-snug">
+                        Consultation &amp; Convenience
+                      </h4>
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* LEARN MORE bolt-nut */}
+          <MagneticButton className="absolute z-30 left-1/2 -translate-x-1/2 bottom-[58px] hidden lg:block">
+            <div className="w-52 h-52 rounded-full bg-[#0E0E0E] border border-white/10 flex items-center justify-center">
+              <Link href="/about" className="w-36 h-36 rounded-full bg-white text-[#111111] flex items-center justify-center font-mono text-xs tracking-widest hover:bg-[var(--accent)] transition-colors duration-300 font-semibold shadow-xl">
+                LEARN MORE
+              </Link>
+            </div>
+          </MagneticButton>
+
+          {/* Bottom bar */}
+          <div className="absolute bottom-0 left-0 right-0 z-20 px-6 sm:px-8 lg:px-16 pb-6 lg:pb-8 hidden lg:block">
+            <div className="bg-[#0E0E0E] rounded-3xl px-6 lg:px-12 pt-5 pb-6">
+              <div className="max-w-7xl mx-auto flex items-center justify-between gap-6">
+                <div className="flex items-center gap-4 flex-1">
+                  <div className="shrink-0 w-28 h-20 rounded-2xl bg-center bg-cover"
+                    style={{ backgroundImage: "url(https://images.unsplash.com/photo-1497366216548-37526070297c?w=400&q=80)" }} />
+                  <p className="text-white/75 text-sm leading-snug max-w-[200px]">
+                    Modern financial services — bookkeeping, taxation, and process management.
+                  </p>
+                </div>
+                <div className="w-56 shrink-0" />
+                <div className="flex items-center gap-4 flex-1 justify-end">
+                  <p className="text-white/75 text-sm leading-snug text-right max-w-[200px]">
+                    Purpose-built software that accelerates productivity and business growth.
+                  </p>
+                  <div className="shrink-0 w-28 h-20 rounded-2xl bg-center bg-cover"
+                    style={{ backgroundImage: "url(https://images.unsplash.com/photo-1486325212027-8081e485255e?w=400&q=80)" }} />
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </section>
+
 
       {/* ─── Brand Statement ─── */}
       <section className="py-24 md:py-36 px-6 max-w-7xl mx-auto overflow-hidden">
@@ -154,7 +181,7 @@ export default function HomePage() {
           {["WE HELPING", "CLIENTS SAVE", "TIME & MONEY"].map((line, i) => (
             <div
               key={line}
-              style={{ marginLeft: `min(${i * 5}vw, ${i * 8}rem)` } as React.CSSProperties}
+              style={{ marginLeft: `min(${i * 3}vw, ${i * 6}rem)` } as React.CSSProperties}
             >
               <TextReveal
                 text={line}
@@ -201,103 +228,11 @@ export default function HomePage() {
       {/* ─── Products Marquee ─── */}
       <ProductsMarquee />
 
-      {/* ─── Strategy ─── */}
-      <section className="bg-[#1A1A1A] py-24 md:py-36 px-6">
-        <div className="max-w-7xl mx-auto">
-          <ScrollReveal type="clipBottom" className="mb-16 text-center">
-            <h2 className="font-serif text-[clamp(1.5rem,4vw,4rem)] leading-tight max-w-3xl mx-auto">
-              WE CREATE{" "}
-              <span className="text-[var(--accent)] inline-block animate-pulse-slow">✦</span>{" "}
-              <span className="text-[var(--accent)] inline-block animate-pulse-slow" style={{ animationDelay: "0.5s" }}>✦</span>{" "}
-              <span className="text-[var(--accent)] inline-block animate-pulse-slow" style={{ animationDelay: "1s" }}>✦</span>{" "}
-              STRATEGIES AND DIGITAL EXPERIENCES.
-            </h2>
-          </ScrollReveal>
+      {/* ─── Strategy — horizontal scroll ─── */}
+      <StrategyHorizontal />
 
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <ScrollReveal type="scaleIn" className="relative h-64 md:h-96 lg:h-[500px] rounded-2xl overflow-hidden">
-              <ParallaxImage
-                src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=1200&q=80"
-                alt="Strategy meeting"
-                containerClassName="h-full rounded-2xl"
-                sizes="(max-width: 1024px) 100vw, 50vw"
-              />
-            </ScrollReveal>
-
-            <ScrollReveal type="fadeUp" delay={0.2}>
-              <span className="font-mono text-xs tracking-widest text-[var(--accent)] mb-4 block">
-                OUR APPROACH
-              </span>
-              <p className="text-[#999999] leading-relaxed mb-6">
-                From bookkeeping and taxation to custom software development, we combine
-                professional expertise with a client-first approach to deliver solutions that
-                truly make a difference — saving time and money at every step.
-              </p>
-              <p className="text-[#999999] leading-relaxed">
-                Our team spans accounting, engineering, and business strategy, serving clients
-                across North America and Europe with the same dedication regardless of project size.
-              </p>
-            </ScrollReveal>
-          </div>
-        </div>
-      </section>
-
-      {/* ─── Testimonials ─── */}
-      <section className="py-24 md:py-36 px-6 max-w-7xl mx-auto">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-20">
-          <ScrollReveal type="fadeUp">
-            <p className="text-[#999999] leading-relaxed mb-6 max-w-sm">
-              Trusted by businesses and individuals across North America, Europe, and beyond who rely on us for financial clarity and innovative software.
-            </p>
-            <Link
-              href="/about"
-              className="font-mono text-xs tracking-widest border border-white/30 rounded-full px-6 py-2.5 text-white hover:bg-white hover:text-[#111111] transition-all duration-300 inline-block"
-            >
-              ABOUT US
-            </Link>
-          </ScrollReveal>
-          <ScrollReveal type="scaleIn" className="relative h-64 rounded-2xl overflow-hidden hidden lg:block">
-            <Image
-              src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=800&q=80"
-              alt="Team"
-              fill
-              sizes="50vw"
-              className="object-cover"
-            />
-          </ScrollReveal>
-        </div>
-
-        <ScrollReveal type="fadeUp" className="mb-4">
-          <span className="font-mono text-xs tracking-widest text-[var(--accent)]">CLIENT MOMENTUM</span>
-        </ScrollReveal>
-        <ScrollReveal type="clipBottom" className="mb-4">
-          <h2 className="font-serif text-[clamp(2rem,5vw,5rem)] leading-none">
-            WHAT CLIENTS SAY
-          </h2>
-        </ScrollReveal>
-        <ScrollReveal type="fadeUp" delay={0.1} className="mb-16">
-          <p className="text-[#999999] max-w-md">
-            Real results from real partnerships.
-          </p>
-        </ScrollReveal>
-
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          {TESTIMONIALS.map((t, i) => (
-            <ScrollReveal key={t.author} type="fadeUp" delay={i * 0.1}>
-              <div className="bg-white text-[#111111] rounded-2xl p-8 h-full flex flex-col hover:-translate-y-2 transition-transform duration-300">
-                <span className="font-mono text-[10px] tracking-widest bg-[#111111] text-white px-3 py-1 rounded-full w-fit mb-6">
-                  {t.category}
-                </span>
-                <p className="text-[#333] leading-relaxed mb-8 flex-1">&ldquo;{t.quote}&rdquo;</p>
-                <div>
-                  <div className="font-semibold text-sm">{t.author}</div>
-                  <div className="text-[#999] text-xs mt-0.5 font-mono">{t.role}</div>
-                </div>
-              </div>
-            </ScrollReveal>
-          ))}
-        </div>
-      </section>
+      {/* ─── Testimonials — horizontal scroll cards ─── */}
+      <TestimonialsSection />
 
       {/* ─── Stats & Case Studies ─── */}
       <section className="bg-[#F5F5F5] text-[#111111] rounded-t-[3rem] py-24 md:py-36 px-6">
@@ -317,9 +252,9 @@ export default function HomePage() {
             ))}
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-center mb-12">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 lg:gap-8 items-center mb-12">
             <ScrollReveal type="fadeUp">
-              <p className="text-[#666] leading-relaxed">
+              <p className="text-[#666] leading-relaxed text-sm lg:text-base">
                 Hand-picked projects showcasing our range of capabilities.
               </p>
             </ScrollReveal>
@@ -328,7 +263,7 @@ export default function HomePage() {
                 OUR CASE STUDIES
               </h2>
             </ScrollReveal>
-            <ScrollReveal type="fadeUp" className="text-right">
+            <ScrollReveal type="fadeUp" className="lg:text-right">
               <Link
                 href="/showcase"
                 className="font-mono text-xs tracking-widest border border-[#111111]/30 rounded-full px-6 py-2.5 text-[#111111] hover:bg-[#111111] hover:text-white transition-all duration-300 inline-block"
