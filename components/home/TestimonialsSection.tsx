@@ -60,9 +60,6 @@ export default function TestimonialsSection() {
   const trackRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    // Horizontal sticky scroll only on desktop
-    if (window.innerWidth < 1024) return;
-
     const outer = outerRef.current;
     const track = trackRef.current;
     if (!outer || !track) return;
@@ -141,35 +138,8 @@ export default function TestimonialsSection() {
         </div>
       </div>
 
-      {/* ── Mobile: 2-col card grid ── */}
-      <div className="lg:hidden bg-[#150c2e] px-4 sm:px-6 pb-16">
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-          {CARDS.map((card) => (
-            <div
-              key={card.author}
-              className="flex flex-col bg-white text-[#111111] border-2 border-[var(--accent)]"
-              style={{ boxShadow: "4px 4px 0 0 var(--accent)" }}
-            >
-              <div className="relative w-full overflow-hidden" style={{ height: "180px" }}>
-                <Image src={card.image} alt={card.category} fill sizes="(max-width:640px) 100vw, 50vw" className="object-cover" loading="lazy" />
-              </div>
-              <div className="flex flex-col flex-1 p-4">
-                <span className="font-mono text-[9px] tracking-widest bg-[#111111] text-white px-2.5 py-1 w-fit mb-3">
-                  {card.category}
-                </span>
-                <p className="text-[#333] text-sm leading-relaxed flex-1">&ldquo;{card.quote}&rdquo;</p>
-                <div className="border-t border-[#111111]/10 pt-3 mt-3">
-                  <div className="font-semibold text-sm">{card.author}</div>
-                  <div className="text-[#999] text-xs mt-0.5 font-mono">{card.role}</div>
-                </div>
-              </div>
-            </div>
-          ))}
-        </div>
-      </div>
-
-      {/* ── Desktop: horizontal scroll zone ── */}
-      <div ref={outerRef} className="bg-[#150c2e] hidden lg:block">
+      {/* ── Horizontal scroll zone (all screen sizes) ── */}
+      <div ref={outerRef} className="bg-[#150c2e]">
         <div
           className="sticky top-0 overflow-hidden bg-[#150c2e] flex items-center"
           style={{ height: `${CARD_HEIGHT + 60}px` }}
