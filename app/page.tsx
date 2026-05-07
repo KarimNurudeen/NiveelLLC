@@ -37,7 +37,7 @@ export default function HomePage() {
           </div>
 
           {/* Hero summary content */}
-          <div className="flex-1 flex flex-col justify-center px-6 sm:px-10 lg:px-20 pb-32 lg:pb-40">
+          <div className="flex-1 flex flex-col justify-center px-6 sm:px-10 lg:px-20 pb-10 lg:pb-40">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-8 items-center">
 
               {/* Left: text content */}
@@ -74,6 +74,66 @@ export default function HomePage() {
                       {s}
                     </span>
                   ))}
+                </div>
+
+                {/* Mobile: horizontal illustration scroll */}
+                <div className="flex lg:hidden gap-3 overflow-x-auto scrollbar-none -mx-6 px-6 mt-8 pb-2">
+
+                  {/* Card 1 — Ticketing */}
+                  <div className="shrink-0 border border-white/10 rounded-2xl p-4 w-[185px] animate-float-1" style={{ background: "rgba(255,255,255,0.04)", backdropFilter: "blur(12px)" }}>
+                    <div className="flex items-center justify-between mb-3">
+                      <div className="w-8 h-8 rounded-xl flex items-center justify-center animate-glow-gold" style={{ background: "rgba(245,213,0,0.12)" }}>
+                        <Ticket className="w-3.5 h-3.5 text-[var(--accent)] animate-icon-swing" />
+                      </div>
+                      <span className="flex items-center gap-1.5">
+                        <span className="w-1.5 h-1.5 rounded-full bg-green-400 animate-pulse" />
+                        <span className="font-mono text-[9px] text-white/30">LIVE</span>
+                      </span>
+                    </div>
+                    <div className="font-serif text-3xl text-white leading-none mb-0.5">1,247</div>
+                    <div className="font-mono text-[9px] tracking-widest text-white/35 mb-3">TICKETS PROCESSED</div>
+                    <div className="space-y-1.5">
+                      <div className="flex justify-between font-mono text-[9px] text-white/25">
+                        <span>Monthly target</span><span>78%</span>
+                      </div>
+                      <div className="h-1 rounded-full overflow-hidden" style={{ background: "rgba(255,255,255,0.08)" }}>
+                        <div className="h-full rounded-full bg-[var(--accent)]" style={{ width: "78%" }} />
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Card 2 — AI productivity */}
+                  <div className="shrink-0 border border-white/10 rounded-2xl p-4 w-[185px] animate-float-2" style={{ background: "rgba(255,255,255,0.04)", backdropFilter: "blur(12px)" }}>
+                    <div className="flex items-center gap-2 mb-3">
+                      <div className="w-8 h-8 rounded-xl flex items-center justify-center animate-glow-purple" style={{ background: "rgba(168,85,247,0.15)" }}>
+                        <Zap className="w-3.5 h-3.5 text-purple-300 animate-icon-flash" />
+                      </div>
+                      <span className="font-mono text-[9px] tracking-widest text-white/35">AI PRODUCTIVITY</span>
+                    </div>
+                    <div className="font-serif text-3xl text-white leading-none mb-0.5">60%</div>
+                    <div className="font-mono text-[9px] tracking-widest text-white/35 mb-3">FASTER TASK COMPLETION</div>
+                    <div className="flex items-end gap-1 h-8">
+                      {[40, 55, 48, 70, 60, 85, 75].map((h, i) => (
+                        <div key={i} className="flex-1 rounded-t-sm" style={{ height: `${h}%`, background: i === 5 ? "var(--accent)" : "rgba(255,255,255,0.1)" }} />
+                      ))}
+                    </div>
+                  </div>
+
+                  {/* Card 3 — Commerce growth */}
+                  <div className="shrink-0 border border-white/10 rounded-2xl p-4 w-[185px] animate-float-3" style={{ background: "rgba(255,255,255,0.04)", backdropFilter: "blur(12px)" }}>
+                    <div className="flex items-center gap-2 mb-3">
+                      <div className="w-8 h-8 rounded-xl flex items-center justify-center animate-glow-blue" style={{ background: "rgba(59,130,246,0.15)" }}>
+                        <TrendingUp className="w-3.5 h-3.5 text-blue-300 animate-icon-rise" />
+                      </div>
+                      <span className="font-mono text-[9px] tracking-widest text-white/35">SOCIAL COMMERCE</span>
+                    </div>
+                    <div className="flex items-end gap-2 mb-0.5">
+                      <div className="font-serif text-3xl text-white leading-none">2.4×</div>
+                      <span className="font-mono text-xs text-green-400 mb-0.5">↑ growth</span>
+                    </div>
+                    <div className="font-mono text-[9px] tracking-widest text-white/35">CUSTOMER REACH EXPANDED</div>
+                  </div>
+
                 </div>
               </div>
 
@@ -218,7 +278,7 @@ export default function HomePage() {
             </p>
           </ScrollReveal>
 
-          <ScrollReveal type="clipBottom" className="flex items-center justify-end gap-6">
+          <ScrollReveal type="clipBottom" className="flex items-center justify-start lg:justify-end gap-6">
             <Image
               src="/niveellogo.jpg"
               alt="Niveel LLC"
